@@ -14,7 +14,7 @@ print("================================================")
 confirm = input('yes/no: ')
 confirm = confirm.lower()
 
-if (confirm != "yes" or confirm != 'y'):
+if (not (confirm == "yes" or confirm == 'y')):
     print("Quitting")
     exit()
 

@@ -27,3 +27,9 @@ if config['ansible'].getboolean('add-roles'):
     print("================================================")
     subprocess.call(['sudo', 'cp', 'Roles.zip', '/etc/ansible/roles/Roles.zip'])
     subprocess.call(['sudo', 'unzip', 'Roles.zip', '-d', '/etc/ansible/roles/'])
+
+if config['ansible'].getboolean('run-roles'):
+    print("================================================")
+    print("Ansible: Running Roles")
+    print("================================================")
+    subprocess.call(['sudo', 'ansible', '/etc/ansible/roles/Harden.yml'])

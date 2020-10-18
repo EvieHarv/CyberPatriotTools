@@ -41,7 +41,7 @@ if config['lynis'].getboolean('install'):
     print("Lynis: Installing")
     print("================================================")
     subprocess.call(['sudo', 'apt-key', 'adv', '--keyserver', 'keyserver.ubuntu.com', '--recv-keys', 'C80E383C3DE9F082E01391A0366C67DE91CA5D5F'])
-    subprocess.call(['sudo', 'add-apt-repository', '"deb [arch=amd64] https://packages.cisofy.com/community/lynis/deb/ xenial main"'])
+    subprocess.run('sudo apt-add-repository "deb [arch=amd64] https://packages.cisofy.com/community/lynis/deb/ xenial main"', shell=True)
     subprocess.call(['sudo', 'apt', 'update',])
     subprocess.call(['sudo', 'apt', 'install', 'lynis'])
 

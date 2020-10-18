@@ -7,11 +7,10 @@ import subprocess
 config = configparser.ConfigParser()
 config.read('config.ini')
 
-print("================================================")
-print("ARE YOU SURE YOU HAVE A PASSWORD WITH 1 CREDIT IN ALL CATEGORIES? (At least 1 uppercase, 1 lowercase, 1 number, 1 special, 8+ characters total.)")
-print("================================================")
+print("ARE YOU SURE YOU HAVE A PASSWORD WITH 1 CREDIT IN ALL CATEGORIES?")
+print("(At least 1 uppercase, 1 lowercase, 1 number, 1 special, 8+ characters total.)")
 
-confirm = input('yes/no: ')
+confirm = input('\nAre you sure? y/n: ')
 confirm = confirm.lower()
 
 if (not (confirm == "yes" or confirm == 'y')):
@@ -61,3 +60,17 @@ if config['lynis'].getboolean('audit'):
     print("Lynis: Installing")
     print("================================================")
     subprocess.call(['sudo', 'lynis', 'audit', 'system'])
+
+
+
+
+print("================================================")
+print("Assuming all went well, things left to do:")
+print(" - Block firefox popups")
+print(" - Ensure there are no unauthorized users")
+print(" - Ensure there are no unauthorized admins")
+print(" - Ensure all passwords are up to spec")
+print(" - Ensure firewall is active (gufw is easy)")
+print(" - Set daily updates & install security updates & recommended updates")
+print(" - Remove bad software (nmap, zenmap, compilers, etc.)")
+print("================================================")

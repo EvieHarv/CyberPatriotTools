@@ -34,7 +34,7 @@ if config['ansible'].getboolean('run-roles'):
     print("================================================")
     print("Ansible: Running Roles")
     print("================================================")
-    subprocess.call(['sudo', 'ansible', '/etc/ansible/roles/Harden.yml'])
+    subprocess.call(['sudo', 'ansible-playbook', '/etc/ansible/roles/Harden.yml'])
 
 if config['lynis'].getboolean('install'):
     print("================================================")

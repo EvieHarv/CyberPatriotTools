@@ -56,7 +56,7 @@ if config['lynis'].getboolean('install'):
 
 if config['lynis'].getboolean('audit'):
     print("================================================")
-    print("Lynis: Installing")
+    print("Lynis: Auditing")
     print("================================================")
     subprocess.call(['sudo', 'lynis', 'audit', 'system'])
 

@@ -37,8 +37,7 @@ if config['ansible'].getboolean('add-roles'):
     print("================================================")
     print("Ansible: Copying Roles")
     print("================================================")
-    subprocess.call(['sudo', 'cp', 'Roles.zip', '/etc/ansible/roles/Roles.zip'])
-    subprocess.call(['sudo', 'unzip', 'Roles.zip', '-d', '/etc/ansible/roles/'])
+    subprocess.call(['sudo', 'cp', '-r', 'Roles/*', '/etc/ansible/roles/'])
 
 if config['ansible'].getboolean('run-roles'):
     print("================================================")

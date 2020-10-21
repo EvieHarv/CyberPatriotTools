@@ -65,11 +65,12 @@ if config['lynis'].getboolean('audit'):
 
 print("================================================")
 print("Assuming all went well, things left to do:")
-print(" - Block firefox popups")
+print(" - Firefox: block popups, check for addons, enable warn when websites try to install addons")
 print(" - Ensure there are no unauthorized users")
 print(" - Ensure there are no unauthorized admins")
 print(" - Ensure all passwords are up to spec")
 print(" - Ensure firewall is active (gufw is easy)")
 print(" - Set daily updates & install security updates & recommended updates")
 print(" - Remove bad software (nmap, zenmap, compilers, etc.)")
+print(" - Check Sudoers File")
 print("================================================")

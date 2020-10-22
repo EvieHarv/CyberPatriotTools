@@ -60,7 +60,11 @@ if config['lynis'].getboolean('audit'):
     print("================================================")
     subprocess.call(['sudo', 'lynis', 'audit', 'system'])
 
-
+if config['guest'].getboolean('guestAccess'):
+    print("================================================")
+    print("Removing Guest Account and User List")
+    print("================================================")
+    subprocess.run('sudo sh -c \'printf \"[Seat:*]\nallow-guest=false\ngreeter-hide-users=true\n\" >/etc/lightdm/lightdm.conf.d/50-no-guest.conf\'', shell=True)
 
 
 print("================================================")
@@ -73,4 +77,5 @@ print(" - Ensure firewall is active (gufw is easy)")
 print(" - Set daily updates & install security updates & recommended updates")
 print(" - Remove bad software (nmap, zenmap, compilers, etc.)")
 print(" - Check Sudoers File")
+print(" - Configure Brightness and Lock Settings")
 print("================================================")

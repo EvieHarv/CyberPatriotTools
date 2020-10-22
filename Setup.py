@@ -60,23 +60,23 @@ if config['lynis'].getboolean('audit'):
     print("================================================")
     subprocess.call(['sudo', 'lynis', 'audit', 'system'])
 
-if config['pwlockout'].getboolean('screenTimeout'):
-    print("================================================")
-    print("Password Config: Screen Timeout")
-    print("================================================")
-    subprocess.call(['', '', '', ''])
-
-if config['pwlockout'].getboolean('logonCooldown'):
-    print("================================================")
-    print("Password Config: Logon CoolDown")
-    print("================================================")
-    subprocess.call(['', '', '', ''])
-
 if config['guest'].getboolean('guestAccess'):
     print("================================================")
     print("Removing Guest Account and User List")
     print("================================================")
     subprocess.run('sudo sh -c \'printf \"[Seat:*]\nallow-guest=false\ngreeter-hide-users=true\n\" >/etc/lightdm/lightdm.conf.d/50-no-guest.conf\'', shell=True)
+
+# if config['pwlockout'].getboolean('screenTimeout'):
+#     print("================================================")
+#     print("Password Config: Screen Timeout")
+#     print("================================================")
+#     subprocess.call(['', '', '', ''])
+#
+# if config['pwlockout'].getboolean('logonCooldown'):
+#     print("================================================")
+#     print("Password Config: Logon CoolDown")
+#     print("================================================")
+#     subprocess.call(['', '', '', ''])
 
 # if config['services'].getboolean('apacheUpdate'):
 #     print("================================================")

@@ -72,12 +72,11 @@ if config['pwlockout'].getboolean('logonCooldown'):
     print("================================================")
     subprocess.call(['', '', '', ''])
 
-guestDisable=(sudo sh -c 'printf "[Seat:*]\nallow-guest=false\ngreeter-hide-users=true\n" >/etc/lightdm/lightdm.conf.d/50-no-guest.conf')
 if config['guest'].getboolean('guestAccess'):
     print("================================================")
     print("Removing Guest Account and User List")
     print("================================================")
-    "${guestDisable[@]}"
+    subprocess.run(sudo sh -c 'printf "[Seat:*]\nallow-guest=false\ngreeter-hide-users=true\n" >/etc/lightdm/lightdm.conf.d/50-no-guest.conf', shell=True)
 
 if config['services'].getboolean('apacheUpdate'):
     print("================================================")

@@ -84,6 +84,12 @@ if config['guest'].getboolean('guestAccess'):
 #     print("================================================")
 #     subprocess.call(['', '', '', ''])
 
+# if config['services'].getboolean('Fail2ban'):
+#     print("================================================")
+#     print("Apache Update")
+#     print("================================================")
+#     subprocess.call(['', '', '', ''])
+
 
 print("================================================")
 print("Assuming all went well, things left to do:")

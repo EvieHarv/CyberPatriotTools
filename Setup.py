@@ -66,6 +66,13 @@ if config['guest'].getboolean('guestAccess'):
     print("================================================")
     subprocess.run('sudo sh -c \'printf \"[Seat:*]\nallow-guest=false\ngreeter-hide-users=true\n\" >/etc/lightdm/lightdm.conf.d/50-no-guest.conf\'', shell=True)
 
+if config['fail2ban-install'].getboolean('services'):
+    print("================================================")
+    print("Fail2Ban: Installing")
+    print("================================================")
+    subprocess.call(['sudo', 'apt', 'update',])
+    subprocess.call(['sudo', 'apt-get', 'install -y', 'fail2ban'])
+
 
 print("================================================")
 print("Assuming all went well, things left to do:")

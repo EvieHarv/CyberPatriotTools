@@ -48,7 +48,7 @@ if config['ansible'].getboolean('add-roles'):
             print("Ansible: Adding Ubuntu")
             print("================================================")
             print(role)
-            #subprocess.call(['sudo', 'cp', '-a', 'Roles/.', '/etc/ansible/roles/' + role + '/'])
+            subprocess.call(['sudo', 'cp', '-a', 'Roles/.', '/etc/ansible/roles/' + role + '/'])
         with open("Roles/Harden.yml", "a") as f:
             f.write("\n   - " + role)
 

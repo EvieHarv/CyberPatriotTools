@@ -3,5 +3,3 @@
   become: yes
   
   roles:
-   - Ubuntu1604-CIS
-   - ansible-role-clamav

@@ -35,9 +35,23 @@ if config['ansible'].getboolean('install'):
 
 if config['ansible'].getboolean('add-roles'):
     print("================================================")
-    print("Ansible: Copying Roles")
+    print("Ansible: Adding Roles")
     print("================================================")
-    subprocess.call(['sudo', 'cp', '-a', 'Roles/.', '/etc/ansible/roles/'])
+
+    # "configname" : "filename"
+    
+    dictRoles = { "clamav": "ansible-role-clamav", "ubuntu1604":"Ubuntu1604-CIS" } 
+
+    for key, role in dictRoles.items():
+        if config['ansible'].getboolean(key):
+            print("================================================")
+            print("Ansible: Adding Ubuntu")
+            print("================================================")
+            print(role)
+            #subprocess.call(['sudo', 'cp', '-a', 'Roles/.', '/etc/ansible/roles/' + role + '/'])
+        with open("Roles/Harden.yml", "a") as f:
+            f.write("\n   - " + role)
+
 
 if config['ansible'].getboolean('run-roles'):
     print("================================================")

@@ -73,6 +73,12 @@ if config['fail2ban-install'].getboolean('services'):
     subprocess.call(['sudo', 'apt', 'update',])
     subprocess.call(['sudo', 'apt-get', 'install -y', 'fail2ban'])
 
+# if config['services'].getboolean('Fail2ban'):
+#     print("================================================")
+#     print("Apache Update")
+#     print("================================================")
+#     subprocess.call(['', '', '', ''])
+
 
 print("================================================")
 print("Assuming all went well, things left to do:")

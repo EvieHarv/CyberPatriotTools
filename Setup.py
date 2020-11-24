@@ -8,7 +8,7 @@ config = configparser.ConfigParser()
 config.read('config.ini')
 
 print("ARE YOU SURE YOU HAVE A PASSWORD WITH 1 CREDIT IN ALL CATEGORIES?")
-print("(At least 1 uppercase, 1 lowercase, 1 number, 1 special, 8+ characters total.)")
+print("(At least 1 uppercase, 1 lowercase, 1 number, 1 special, 10+ characters total.)")
 
 confirm = input('\nAre you sure? y/n: ')
 confirm = confirm.lower()
@@ -40,7 +40,9 @@ if config['ansible'].getboolean('add-roles'):
 
     # "configname" : "filename"
     
-    dictRoles = { "clamav": "ansible-role-clamav", "ubuntu1604":"Ubuntu1604-CIS" } 
+    # Technically would be better to do this dict assignment in some dynamic manner, but this works functioanlly for now
+
+    dictRoles = { "clamav": "ansible-role-clamav", "ubuntu1604":"Ubuntu1604-CIS", "ubuntu1804":"Ubuntu1804-CIS" } 
 
     for key, role in dictRoles.items():
         if config['ansible'].getboolean(key):

@@ -1,0 +1,20 @@
+---
+galaxy_info:
+  author: "Florian Utz"
+  description: "Ansible role to apply Debian 9 CIS Baseline"
+  company: "none"
+  license: MIT
+  min_ansible_version: 2.6
+
+  platforms:
+    - name: Debian9
+      versions:
+        - jessie
+
+  galaxy_tags:
+    - system
+    - security
+    - cis
+    - hardening
+
+dependencies: []

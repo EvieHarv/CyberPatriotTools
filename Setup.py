@@ -3,6 +3,7 @@
 
 import configparser
 import subprocess
+import os
 
 config = configparser.ConfigParser()
 config.read('config.ini')
@@ -37,17 +38,13 @@ if config['ansible'].getboolean('add-roles'):
     print("================================================")
     print("Ansible: Adding Roles")
     print("================================================")
-
-    # "configname" : "filename"
     
-    # Technically would be better to do this dict assignment in some dynamic manner, but this works functioanlly for now
+    roles = [ f.name for f in os.scandir("./Roles/") if f.is_dir() ] # get all *folders* in /Roles/
 
-    dictRoles = { "clamav": "ansible-role-clamav", "ubuntu1604":"Ubuntu1604-CIS", "ubuntu1804":"Ubuntu1804-CIS" } 
-
-    for key, role in dictRoles.items():
-        if config['ansible'].getboolean(key):
+    for role in roles:
+        if config['ansible'].getboolean(role):
             print("================================================")
-            print("Ansible: Adding Ubuntu")
+            print("Ansible: Adding role " + role)
             print("================================================")
             print(role)
             subprocess.call(['sudo', 'cp', '-a', 'Roles/.', '/etc/ansible/roles/' + role + '/'])

@@ -48,8 +48,9 @@ if config['ansible'].getboolean('add-roles'):
             print("================================================")
             print(role)
             subprocess.call(['sudo', 'cp', '-a', 'Roles/.', '/etc/ansible/roles/' + role + '/'])
-        with open("Roles/Harden.yml", "a") as f:
-            f.write("\n   - " + role)
+            with open("Roles/Harden.yml", "a") as f:
+                f.write("\n   - " + role)
+    subprocess.call(['sudo', 'cp', '-a', 'Roles/.', '/etc/ansible/roles/' + role + '/'])
 
 
 if config['ansible'].getboolean('run-roles'):

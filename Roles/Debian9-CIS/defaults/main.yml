@@ -298,7 +298,7 @@ debian9cis_set_boot_pass: false
 debian9cis_is_router: false
 
 # IPv6 required
-debian9cis_ipv6_required: true
+debian9cis_ipv6_required: false
 
 # AIDE
 debian9cis_config_aide: true
@@ -329,8 +329,8 @@ debian9cis_rsh_required: false
 debian9cis_ypbind_required: false
 
 # Time Synchronization
-debian9cis_time_synchronization: chrony
-# debian9cis_time_synchronization: ntp
+#debian9cis_time_synchronization: chrony
+debian9cis_time_synchronization: ntp
 
 debian9cis_time_synchronization_servers:
   - uri: "0.pool.ntp.org"
